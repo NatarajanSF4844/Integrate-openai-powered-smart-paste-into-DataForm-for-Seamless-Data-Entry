@@ -10,8 +10,8 @@
         const string deploymentName = "GPT35Turbo";
         string key = "API key";
 
-        IChatCompletionService chatCompletionService;
-        Kernel kernel;
+        IChatCompletionService? chatCompletionService;
+        Kernel? kernel;
 
         internal SemanticKernelService()
         {

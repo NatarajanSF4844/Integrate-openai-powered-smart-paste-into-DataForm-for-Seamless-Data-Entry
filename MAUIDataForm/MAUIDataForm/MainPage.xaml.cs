@@ -9,10 +9,10 @@
             InitializeComponent();
         }
 
-        string clipboardText;
+        string clipboardText = string.Empty;
         SemanticKernelService semanticKernelService = new SemanticKernelService();
 
-        private async void OnSmartPasteButtonClicked(object sender, EventArgs e)
+        private async void OnSmartPasteButtonClicked(object? sender, EventArgs e)
         {
             if (Clipboard.Default.HasText)
             {
@@ -21,7 +21,7 @@
 
             if (string.IsNullOrEmpty(this.clipboardText))
             {
-                await App.Current.MainPage.DisplayAlert("", "No text copied to clipboard. Please copy the text and try again", "OK");
+                await DisplayAlert("", "No text copied to clipboard. Please copy the text and try again", "OK");
 
                 return;
             }
@@ -43,15 +43,15 @@
 
         private async void OnSubmitButtonClicked(object sender, EventArgs e)
         {
-            if (this.feedbackForm != null && App.Current?.MainPage != null)
+            if (this.feedbackForm != null)
             {
                 if (this.feedbackForm.Validate())
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Feedback form submitted successfully", "OK");
+                    await DisplayAlert("", "Feedback form submitted successfully", "OK");
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Please enter the required details", "OK");
+                    await DisplayAlert("", "Please enter the required details", "OK");
                 }
             }
         }

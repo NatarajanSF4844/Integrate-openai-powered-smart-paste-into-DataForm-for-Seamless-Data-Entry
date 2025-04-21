@@ -7,13 +7,13 @@
 
 <Grid>
     <Image Source="feedbackform.png" Aspect="Fill" />
-    <Grid HorizontalOptions="Center" 
+        <Grid HorizontalOptions="Center" 
           VerticalOptions="Center" 
           ColumnSpacing="20">
-          
-        <Frame HasShadow="False" 
+
+            <StackLayout>
+                <Border 
                        BackgroundColor="{DynamicResource SfDataFormNormalBackground}"
-                       CornerRadius="10"
                        MaximumHeightRequest="550"
                        VerticalOptions="Start"
                        HorizontalOptions="Center" 
@@ -42,6 +42,7 @@
                 <dataForm:SfDataForm x:Name="feedbackForm"
                                                            Grid.RowSpan="1"
                                                            Grid.Row="1"
+                                                           x:DataType="local:FeedbackViewModel"
                                                            DataObject="{Binding ViewModel}"
                                                            ValidationMode="PropertyChanged"
                                                            LayoutType="TextInputLayout"
@@ -73,8 +74,9 @@
                                    HeightRequest="40"/>
                 </HorizontalStackLayout>
             </Grid>
-        </Frame>
-    </Grid>
+        </Border>
+            </StackLayout>
+        </Grid>
 </Grid>
 
 
